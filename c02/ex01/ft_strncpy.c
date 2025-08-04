@@ -6,14 +6,14 @@
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 17:42:54 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/03 18:05:43 by psilva-p         ###   ########.fr       */
+/*   Updated: 2025/08/04 17:35:10 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
-char	*ft_strncpy(char	*dest, char	*src, unsigned int	n)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int	i;
 
@@ -40,7 +40,5 @@ int main()
 	printf("source string: %s\n", src);
 	ft_strncpy(dest, src, n);
 	printf("dest string: %s, with %i bits copied!\n", dest, n);
-
-
 }
 */

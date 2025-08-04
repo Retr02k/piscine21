@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 19:07:07 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/04 16:34:49 by psilva-p         ###   ########.fr       */
+/*   Updated: 2025/08/04 20:51:07 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ int	ft_str_is_numeric(char *str)
 	}
 	return (1);
 }
-
+/*
 int main ()
 {
-	char str[] = "hello";
-	printf("%i\n", str);
+	char str[] = "456789a";
+	printf("%i\n", ft_str_is_numeric(str));
 }
+*/

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/03 18:30:42 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/04 17:34:52 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/08/04 21:02:50 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/08/04 21:12:49 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
-int	ft_str_is_alpha(char *str)
+int	ft_str_is_printable(char *str)
 {
 	while (*str)
 	{
-		if ((*str >= 65 && *str <= 90) || (*str >= 97 && *str <= 122))
+		if(*str > 31)
 			str++;
 		else
 			return (0);
@@ -27,7 +27,7 @@ int	ft_str_is_alpha(char *str)
 /*
 int main ()
 {
-	char str[] = "HelloWorld";
-	printf("%i\n", ft_str_is_alpha(str));
+	char	str[] = "\t";
+	printf("%i\n", ft_str_is_printable(str));
 }
 */
