@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/04 21:02:50 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/05 11:32:56 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/08/05 14:17:19 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/08/05 14:39:09 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
 
-int	ft_str_is_printable(char *str)
+char	*ft_strcapitalize(char *str)
 {
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (str[i])
 	{
-		if((*str < 32) || (*str > 126))
-			str++;
-		else
-			return (0);
+		if (str[0] >= 97 && str[0] <= 122)
+			str[0] -= 32;
+		else if((str[i] >= 65) && (str[i] <= 90))
+			str[i] += 32;
+		else if (str[i - 1] == 32 && str[i] >= 97 && str[i] <= 122)
+			str[i] -= 32;
+		i++;
 	}
-	return (1);
+	return (str);
 }
-/*
+
 int main ()
 {
-	char	str[] = "\t";
-	printf("%i\n", ft_str_is_printable(str));
+	char str[] = "hi, how are you? 42words forty-two; fifty+and+one";
+
+	printf("%s\n", ft_strcapitalize(str));
+
 }
-*/

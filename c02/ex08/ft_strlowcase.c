@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 23:06:13 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/04 23:09:44 by psilva-p         ###   ########.fr       */
+/*   Updated: 2025/08/05 14:20:21 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ char	*ft_strlowcase(char *str)
 	while (*str)
 	{
 		if ((*str >= 65) && (*str <= 90))
-		{
 			*str += 32;
-		}
 		str++;
 	}
 	return (original_pointer);
