@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 14:17:19 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/06 17:31:48 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/08/06 22:07:36 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/08/06 22:47:51 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-char	*ft_strcapitalize(char *str)
+char	*ft_strcat(char *dest, char *src)
 {
-	int	i;
+	char	*orig_ptr;
 
-	i = 0;
-	while (str[i])
+	orig_ptr = dest;
+	while (*dest)
+	dest++;
+	while (*src)
 	{
-		if (str[0] >= 97 && str[0] <= 122)
-			str[0] -= 32;
-		else if ((str[i] >= 65) && (str[i] <= 90))
-			str[i] += 32;
-		else if (str[i - 1] == 32 && str[i] >= 97 && str[i] <= 122)
-			str[i] -= 32;
-		i++;
+		*dest = *src;
+		src++;
+		dest++;
 	}
-	return (str);
+	*dest = '\0';
+	return (orig_ptr);
 }
 /*
 int main ()
 {
-	char str[] = "hi, how are you? 42words forty-two; fifty+and+one";
+	char	s1[30] = "ola";
+	char	s2[] = "mundo";
 
-	printf("%s\n", ft_strcapitalize(str));
-
+	printf("%s\n", ft_strcat(s1, s2));
+	printf("%s\n", strcat(s1, s2));
 }
 */

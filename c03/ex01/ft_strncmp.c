@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 14:17:19 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/06 17:31:48 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/08/06 21:46:07 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/08/06 22:06:50 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-char	*ft_strcapitalize(char *str)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (str[i])
+	while (i < n)
 	{
-		if (str[0] >= 97 && str[0] <= 122)
-			str[0] -= 32;
-		else if ((str[i] >= 65) && (str[i] <= 90))
-			str[i] += 32;
-		else if (str[i - 1] == 32 && str[i] >= 97 && str[i] <= 122)
-			str[i] -= 32;
+		if (*s1 != *s2)
+			return (*s1 - *s2);
+		if (*s1 == '\0' || *s2 == '\0')
+			break ;
+		s1++;
+		s2++;
 		i++;
 	}
-	return (str);
+	return (*s1 - *s2);
 }
 /*
 int main ()
 {
-	char str[] = "hi, how are you? 42words forty-two; fifty+and+one";
+	char str1[] = "Hello World!";
+	char str2[] = "Hello world!";
 
-	printf("%s\n", ft_strcapitalize(str));
-
+	printf("%i\n", ft_strncmp(str1, str2, 5));
+	printf("%i\n", strncmp(str1, str2, 5));
 }
 */

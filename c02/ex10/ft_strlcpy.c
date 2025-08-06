@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:21:34 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/05 17:52:06 by psilva-p         ###   ########.fr       */
+/*   Updated: 2025/08/06 18:37:58 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,29 @@
 
 int	ft_strlen(char *str)
 {
-	int counter;
+	int	counter;
 
 	counter = 0;
 	while (str[counter])
 	{
 		counter++;
 	}
-	return(counter);
+	return (counter);
 }
 
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	char	*orig_ptr;
+	char			*orig_ptr;
+	unsigned int	i;
 
-	orig_ptr = dest;
+	orig_ptr = src;
 	if (src == NULL)
-		return(0);
-	while (*src)
+		return (0);
+	i = 0;
+	while ((i < (size - 1)) && (*src))
 	{
-		*dest = *src;
-		src++;
-		dest++;
+		*dest++ = *src++;
+		i++;
 	}
 	*dest = '\0';
 	return (ft_strlen(orig_ptr));
@@ -45,11 +46,16 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 /*
 int main ()
 {
-	char	str[] = "";
-	char	str2[30];
+	char	str[] = "poiuhgfd";
+	char	str2[30] = "............................";
+	char	str3[30] = "............................";
 	int	size = 5;
 
-	printf("%i\n", strlcpy(str2, str, size));
+	strlcpy(str3, str, size);
+	printf("%s\n", str3);
+	ft_strlcpy(str2, str, size);
+	printf("%s\n", str2);
+	printf("%li\n", strlcpy(str2, str, size));
 	printf("%i\n",ft_strlcpy(str2, str, size));
 }
 */

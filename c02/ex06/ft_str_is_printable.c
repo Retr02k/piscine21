@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 21:02:50 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/05 11:32:56 by psilva-p         ###   ########.fr       */
+/*   Updated: 2025/08/06 17:31:30 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_str_is_printable(char *str)
 {
 	while (*str)
 	{
-		if((*str < 32) || (*str > 126))
+		if ((*str < 32) || (*str > 126))
 			str++;
 		else
 			return (0);
