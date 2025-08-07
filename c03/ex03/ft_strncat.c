@@ -1,42 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 21:46:07 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/07 13:54:10 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/08/07 11:40:36 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/08/07 14:07:37 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
 	unsigned int	i;
+	char			*orig_ptr;
 
 	i = 0;
-	while (i < n)
+	orig_ptr = dest;
+	while (*dest)
+		dest++;
+	while (*src && (i < nb))
 	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		if (*s1 == '\0' || *s2 == '\0')
-			break ;
-		s1++;
-		s2++;
+		*dest = *src;
+		src++;
+		dest++;
 		i++;
 	}
-	return (*s1 - *s2);
+	i++;
+	dest = '\0';
+	return (orig_ptr);
 }
 /*
 int main ()
 {
-	char str1[] = "Hello World!";
-	char str2[] = "Hello world!";
+	char	s1[30] = "ola ";
+	char	s2[] = "mundo";
 
-	printf("%i\n", ft_strncmp(str1, str2, 5));
-	printf("%i\n", strncmp(str1, str2, 5));
+	printf("%s\n", ft_strncat(s1, s2, 3));
+	printf("%s\n", strncat(s1, s2, 3));
 }
 */

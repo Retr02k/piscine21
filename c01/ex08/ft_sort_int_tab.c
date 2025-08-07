@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 22:00:33 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/03 00:51:12 by psilva-p         ###   ########.fr       */
+/*   Updated: 2025/08/05 14:12:11 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,22 @@ void	ft_sort_int_tab(int *tab, int size)
 {
 	int	i;
 	int	temp;
+	int	sorted;
 
-	i = 0;
-	while (tab[i] < size)
+	sorted = 0;
+	while (!sorted)
 	{
-		if (tab[i] > tab[i + 1])
+		sorted = 1;
+		i = 0;
+		while (i < (size - 1))
 		{
-			temp = tab[i];
-			tab[i] = tab[i + 1];
-			tab[i + 1] = temp;
+			if (tab[i] > tab[i + 1])
+			{
+				temp = tab[i];
+				tab[i] = tab[i + 1];
+				tab[i + 1] = temp;
+				sorted = 0;
+			}
 			i++;
 		}
 	}

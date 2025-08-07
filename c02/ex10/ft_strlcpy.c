@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:21:34 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/06 18:37:58 by psilva-p         ###   ########.fr       */
+/*   Updated: 2025/08/07 18:52:06 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 int main ()
 {
 	char	str[] = "poiuhgfd";
-	char	str2[30] = "............................";
+	char	str2[30] = "";
 	char	str3[30] = "............................";
-	int	size = 5;
+	int	size = -2;
 
 	strlcpy(str3, str, size);
 	printf("%s\n", str3);

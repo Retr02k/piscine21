@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 22:07:36 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/06 22:47:51 by psilva-p         ###   ########.fr       */
+/*   Updated: 2025/08/07 13:56:05 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strcat(char *dest, char *src)
 
 	orig_ptr = dest;
 	while (*dest)
-	dest++;
+		dest++;
 	while (*src)
 	{
 		*dest = *src;
