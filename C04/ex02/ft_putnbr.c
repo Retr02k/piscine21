@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 21:26:47 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/11 14:08:06 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/08/12 14:05:08 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/08/12 14:18:32 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include <unistd.h>
 
-int	ft_strcmp(char *s1, char *s2)
+void	ft_putchar(char c)
 {
-	while ((*s1) && (*s2))
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
 	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		s1++;
-		s2++;
+		write(1, "-2147483648", 11);
+		return ;
 	}
-	return (*s1 - *s2);
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+		ft_putnbr(nb / 10);
+	ft_putchar((nb % 10) + '0');
 }
-
-/*
-int main()
-{
-	char str1[] = "Hello World!";
-	char str2[] = "\0";
-
-	printf("%i\n", ft_strcmp(str1, str2));
-	printf("%i\n", strcmp(str1, str2));
-}
-*/

@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 21:26:47 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/11 14:08:06 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/08/12 13:56:03 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/08/12 17:03:34 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-
-int	ft_strcmp(char *s1, char *s2)
+int	ft_strlen(char *str)
 {
-	while ((*s1) && (*s2))
-	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		s1++;
-		s2++;
-	}
-	return (*s1 - *s2);
-}
+	int	counter;
 
-/*
-int main()
-{
-	char str1[] = "Hello World!";
-	char str2[] = "\0";
-
-	printf("%i\n", ft_strcmp(str1, str2));
-	printf("%i\n", strcmp(str1, str2));
+	counter = 0;
+	while (str[counter])
+		counter++;
+	return (counter);
 }
-*/

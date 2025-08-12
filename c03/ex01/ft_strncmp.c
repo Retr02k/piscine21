@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 21:46:07 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/07 13:54:10 by psilva-p         ###   ########.fr       */
+/*   Updated: 2025/08/11 14:20:37 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	unsigned int	i;
 
 	i = 0;
+	if (n == 0)
+		return (0);
 	while (i < n)
 	{
 		if (*s1 != *s2)
@@ -28,15 +30,16 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 		s2++;
 		i++;
 	}
-	return (*s1 - *s2);
+	return (0);
 }
+
 /*
 int main ()
 {
-	char str1[] = "Hello World!";
-	char str2[] = "Hello world!";
+	char str1[] = "Hello ";
+	char str2[] = "Hello World?";
 
-	printf("%i\n", ft_strncmp(str1, str2, 5));
-	printf("%i\n", strncmp(str1, str2, 5));
+	printf("%i\n", ft_strncmp(str1, str2, 11));
+	printf("%i\n", strncmp(str1, str2, 11));
 }
 */

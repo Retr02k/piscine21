@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 11:40:36 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/07 14:07:37 by psilva-p         ###   ########.fr       */
+/*   Updated: 2025/08/11 14:21:31 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 		i++;
 	}
 	i++;
-	dest = '\0';
+	*dest = '\0';
 	return (orig_ptr);
 }
 /*
