@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/17 23:32:32 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/17 23:52:41 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/08/18 15:39:49 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/08/18 17:38:19 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stdio.h>
 
-int	ft_strlen(char *str)
+void	ft_swap(int	*a, int *b)
 {
-	int counter = 0;
-	while (str[counter])
-		counter++;
-	return (counter);
+	int	temp;
+
+	temp = *b;
+	*b = *a;
+	*a = temp;
 }
 
-char	*ft_strdup(const char *s1)
+int main()
 {
-	int		mem_need = ft_strlen(s1);
-	int		i = 0;
-	char	*c;
+	int	x = 2;
+	int	y = 4;
 
-	c = malloc(mem_need + 1);
-	if (!c)
-		return(NULL);
-	while (s1[i])
-	{
-		c[i] = s1[i];
-		i++;
-	}
-	c[i] = '\0';
-	return (c);
+	printf("original integer: %i%i\n", x, y);
+	ft_swap(&x, &y);
+	printf("swapped integers: %i%i\n", x, y);
 }

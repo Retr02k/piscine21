@@ -1,39 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/17 23:32:32 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/17 23:52:41 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/08/18 19:25:56 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/08/18 21:00:32 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
 
-int	ft_strlen(char *str)
+int	ft_strlen(char	*str)
 {
-	int counter = 0;
+	int	counter	=	0;
 	while (str[counter])
 		counter++;
 	return (counter);
 }
 
-char	*ft_strdup(const char *s1)
+void	ft_swap(char	*a, char	*b)
 {
-	int		mem_need = ft_strlen(s1);
-	int		i = 0;
-	char	*c;
+	char	temp;
 
-	c = malloc(mem_need + 1);
-	if (!c)
-		return(NULL);
-	while (s1[i])
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+char	*ft_strrev(char *str)
+{
+	int	i = ft_strlen(str) - 1;
+	int	j = 0;
+	while (j < i)
 	{
-		c[i] = s1[i];
-		i++;
+		ft_swap(&str[i], &str[j]);
+		j++;
+		i--;
 	}
-	c[i] = '\0';
-	return (c);
+	return (str);
+}
+
+int	main()
+{
+	char	str[] = "olay";
+	printf("%s\n", ft_strrev(str));
 }
