@@ -12,9 +12,9 @@
 
 #include <stdio.h>
 
-int	ft_strlen(char *str)
+int ft_strlen(char *str)
 {
-	int	counter;
+	int counter;
 
 	counter = 0;
 	while (str[counter])
@@ -22,11 +22,11 @@ int	ft_strlen(char *str)
 	return (counter);
 }
 
-int	validate_base(char *str)
+int validate_base(char *str)
 {
-	int	i;
-	int	j;
-	int	base_size;
+	int i;
+	int j;
+	int base_size;
 
 	base_size = ft_strlen(str);
 	if (base_size < 2)
@@ -34,8 +34,7 @@ int	validate_base(char *str)
 	i = 0;
 	while (i < base_size)
 	{
-		if (str[i] == '-' || str[i] == '+' || (*str == ' ')
-			|| (*str >= '\t' && *str <= '\r'))
+		if (str[i] == '-' || str[i] == '+' || (*str == ' ') || (*str >= '\t' && *str <= '\r'))
 			return (0);
 		j = 0;
 		while (j < i)
@@ -49,9 +48,9 @@ int	validate_base(char *str)
 	return (1);
 }
 
-int	index_in_base(char c, char *base)
+int index_in_base(char c, char *base)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (base[i])
@@ -63,28 +62,28 @@ int	index_in_base(char c, char *base)
 	return (-1);
 }
 
-int	atoi_engine(char *str, char *base, int base_size)
+int atoi_engine(char *str, char *base, int base_size)
 {
-	int	index;
-	int	result;
+	int index;
+	int result;
 
 	result = 0;
 	while (*str)
 	{
 		index = index_in_base(*str, base);
 		if (index == -1)
-			break ;
+			break;
 		result = result * base_size + index;
 		str++;
 	}
 	return (result);
 }
 
-int	ft_atoi_base(char *str, char *base)
+int ft_atoi_base(char *str, char *base)
 {
-	int	result;
-	int	sign;
-	int	base_size;
+	int result;
+	int sign;
+	int base_size;
 
 	sign = 1;
 	result = 0;

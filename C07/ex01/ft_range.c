@@ -1,48 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/17 00:52:55 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/18 21:14:28 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/08/18 21:15:32 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/08/18 22:15:52 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
 
-int	ft_strlen(char	*str)
+int *ft_range(int min, int max)
 {
-	if (!*str)
+	int	elements;
+	int	*i;
+
+	if (min >= max)
 		return (0);
-	return (ft_strlen(str + 1) + 1);
-}
-
-char	*ft_strdup(char *str)
-{
-	int		mem_need;
-	int		i;
-	char	*c;
-
-	i = 0;
-	mem_need = ft_strlen(str);
-	c = malloc(mem_need + 1);
-	if (!c)
-		return (NULL);
-	while (str[i])
+	elements = max - min;
+	i = malloc(elements * sizeof(int));
+	if (i == NULL)
+		return (0);
+	int *orig_i = i;
+	while (min < max)
 	{
-		c[i] = str[i];
+		*i = min;
+		min++;
 		i++;
 	}
-	c[i] = '\0';
-	return (c);
+	return (orig_i);
 }
-/*
-int main ()
+
+int main()
 {
-	char	str[] = "ola bom dia";
-	printf("%s\n", ft_strdup(str));
+	int	min;
+	int	max;
+	int	*arr;
+	int	j;
+	int	length;
+
+	min = 3;
+	max = 7;
+	arr = ft_range(min, max);
+	j = 0;
+	length = max - min;
+	while (j < length)
+	{
+		printf("%d", arr[j]);
+		j++;
+	}
+	printf("\n");
+	free(arr);
 }
-*/
