@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/18 21:15:32 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/08/20 14:45:43 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/08/19 13:40:55 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/08/19 15:37:09 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-int	*ft_range(int min, int max)
+int	ft_ultimate_range(int **range, int min, int max)
 {
 	int	elements;
-	int	*i;
-	int	*orig_i;
+	int	*orig_ele;
 
 	if (min >= max)
+	{
+		*range = NULL;
 		return (0);
+	}
 	elements = max - min;
-	i = malloc(elements * sizeof(int));
-	if (i == NULL)
-		return (0);
-	orig_i = i;
+	*range = malloc((elements) * sizeof(int));
+	if (*range == NULL)
+		return (-1);
+	orig_ele = *range;
 	while (min < max)
 	{
-		*i = min;
+		*orig_ele = min;
 		min++;
-		i++;
+		orig_ele++;
 	}
-	return (orig_i);
+	return (elements);
 }
 /*
-int main()
+int	main(void)
 {
 	int	min;
 	int	max;
@@ -45,15 +47,19 @@ int main()
 
 	min = 3;
 	max = 7;
-	arr = ft_range(min, max);
+	length = ft_ultimate_range(&arr, min, max);
+	if (length == -1)
+	{
+		printf("Memory allocation failed!\n");
+		return (1);
+	}
 	j = 0;
-	length = max - min;
 	while (j < length)
 	{
-		printf("%d", arr[j]);
+		printf("%i\n", arr[j]);
 		j++;
 	}
-	printf("\n");
 	free(arr);
+	return (0);
 }
 */
